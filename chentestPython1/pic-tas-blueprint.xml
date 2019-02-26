@@ -1,0 +1,244 @@
+<s:tasBlueprint xmlns:s="http://xmlns.schemas.oracle.com/tasBlueprint"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.schemas.oracle.com/tasBlueprint TasBlueprint.xsd ">
+    <s:serviceCatalog>
+        <s:name>Oracle Bare Metal Cloud Service</s:name>
+        <title name="value" foo="bar">My Podcasts
+                   <rank>1</rank>
+                   <year>2008</year>
+         </title>
+        <!-- Name to be displayed on UI for service . For e.g. Database, Java, Human Capital Management, etc -->
+        <s:displayName>Oracle Bare Metal IaaS</s:displayName>
+        <s:displayName_translationKey>serviceCatalog.displayName</s:displayName_translationKey>
+        <s:serviceCategory>IAAS</s:serviceCategory>
+        <!--s:gettingStartedUrl>http://cloud.oracle.com/pic</s:gettingStartedUrl-->
+        <!-- Various configuration elements for the service -->
+        <s:serviceConfiguration>
+            <!-- Supported values are BASIC, STANDARD, ENTERPRISE, CUSTOM, MINI, HYBRID  & TRIAL -->
+            <s:name>CUSTOM</s:name>
+            <!-- Name for the service config to appear on UI -->
+            <s:displayName>Oracle Bare Metal IaaS</s:displayName>
+            <s:displayName_translationKey>serviceConfiguration1.displayName</s:displayName_translationKey>
+            <s:description>Oracle Public Infrastructure Cloud - Bare Metal</s:description>
+            <s:description_translationKey>serviceConfiguration1.description</s:description_translationKey>
+            <!-- Display order on the UI -->
+            <s:rank>0</s:rank>
+            <s:offeringType>PAID</s:offeringType>
+        </s:serviceConfiguration>
+        <s:serviceSettings>
+            <!--
+            <s:trialSettings>
+                <s:trialDurationDays>180</s:trialDurationDays>
+                <s:numberOfAllowedConcurrentTrials>99</s:numberOfAllowedConcurrentTrials>
+            </s:trialSettings>
+            -->
+        </s:serviceSettings>
+        <s:cloudCreditConfig>
+            <s:cloudCreditType>IAASMB</s:cloudCreditType>
+        </s:cloudCreditConfig>
+        <s:serviceManagerConfig>
+            <s:propertyList>
+                <s:propertyName>$$ORDER_SOURCE$$</s:propertyName>
+            </s:propertyList>
+        </s:serviceManagerConfig>
+    </s:serviceCatalog>
+    <s:metering>
+        <!--
+        New SKUs
+        B86076	Oracle Bare Metal Cloud Service - Standard Compute Capacity - Metered - OCPU Per Hour
+        B86077	Oracle Bare Metal Cloud Service - High I/O Compute Capacity - Metered - OCPU Per Hour
+        B86078	Oracle Bare Metal Cloud Service - Dense I/O Compute Capacity - Metered - OCPU Per Hour
+        B86079	Oracle Bare Metal Cloud Service - Virtual Machine Standard - Metered - OCPU Per Hour
+
+        B87061	Oracle Bare Metal Cloud Service - Block Volumes - Metered - Gigabyte Storage Capacity per Month
+
+        B86080	Oracle Bare Metal Cloud Service - Object Storage - Storage - Metered - Gigabyte Storage Capacity per Month
+        B87060	Oracle Bare Metal Cloud Service - Object Storage - Requests - Metered - 10,000 Requests per Month
+
+        B87064	Oracle Bare Metal Cloud Service - 100 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+        B87065	Oracle Bare Metal Cloud Service - 400 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+        B87066	Oracle Bare Metal Cloud Service - 8192 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+
+        B87062	Oracle Bare Metal Cloud Service - Network - Metered - Gigabyte Outbound Data Transfer per month
+        -->
+        <!--
+        TODO::
+        What is the Resource Limit that we want to define ?
+        -->
+        <!-- Compute SKUs -->
+        <s:resource>
+            <s:resourceName>PIC_COMPUTE_X5_STANDARD</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Standard Compute Capacity - Metered - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86076</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_COMPUTE_X5_NVME_12_8</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - High I/O Compute Capacity - Metered - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86077</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_COMPUTE_X5_NVME_28_8</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Dense I/O Compute Capacity - Metered - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86078</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_COMPUTE_VM_STANDARD</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Virtual Machine Standard - Metered - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86079</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+
+        <!-- Block Storage SKUs -->
+        <s:resource>
+            <s:resourceName>PIC_BLOCK_STORAGE_STANDARD</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Block Volumes - Metered - Gigabyte Storage Capacity per Month
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>GB Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>GB Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B87061</s:gsiProductId>
+            <s:gsiUsageUnit>GB Months</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+
+        <!-- Object Storage SKUs -->
+        <s:resource>
+            <s:resourceName>PIC_OBJECT_STORAGE</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Object Storage - Storage - Metered - Gigabyte Storage Capacity per
+                Month
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>GB Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>GB Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B86080</s:gsiProductId>
+            <s:gsiUsageUnit>GB Months</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_OBJECT_STORAGE_REQUEST</s:resourceName>
+            <s:description>
+                Cloud Service - Object Storage - Requests - Metered - 10,000 Requests per Month
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>10,000 Requests</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>10,000 Requests</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Tenthousand</s:aggregationMultiplier>
+            <s:gsiProductId>B87060</s:gsiProductId>
+            <s:gsiUsageUnit>10,000 Requests</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+
+        <!-- LB -->
+        <s:resource>
+            <s:resourceName>PIC_LB_SMALL</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - 100 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>Instance Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>Instance Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B87064</s:gsiProductId>
+            <s:gsiUsageUnit>Instance Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_LB_MEDIUM</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - 400 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>Instance Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>Instance Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B87065</s:gsiProductId>
+            <s:gsiUsageUnit>Instance Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>PIC_LB_LARGE</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - 8192 Mbps Load Balancer Capacity - Metered - Per Load Balancer Hour
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>Instance Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>Instance Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B87066</s:gsiProductId>
+            <s:gsiUsageUnit>Instance Hours</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+
+        <!-- Network -->
+        <s:resource>
+            <s:resourceName>PIC_COMPUTE_OUTBOUND_DATA_TRANSFER</s:resourceName>
+            <s:description>
+                Oracle Bare Metal Cloud Service - Network - Metered - Gigabyte Outbound Data Transfer per month
+            </s:description>
+            <s:rawUnitDisplayName>number</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>GB Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>GB Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B87062</s:gsiProductId>
+            <s:gsiUsageUnit>GB Months</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+        </s:resource>
+    </s:metering>
+</s:tasBlueprint>

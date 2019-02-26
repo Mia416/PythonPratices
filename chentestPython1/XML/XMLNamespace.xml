@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<country:list version="3.0" xmlns:country="http://Some/www.home.com" xmlns:region="http://some/www.hello.com">
+<country:Region111>
+     <Some_child_tags>
+      <region:tag1>some contents</region:tag1>
+     </Some_child_tags>
+</country:Region111>
+</country:list>

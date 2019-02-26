@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
+-->
+
+<s:tasBlueprint xsi:schemaLocation="http://xmlns.schemas.oracle.com/tasBlueprint TASBlueprint.xsd" xmlns:s="http://xmlns.schemas.oracle.com/tasBlueprint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <s:serviceCatalog>
+        <s:name>JAAS</s:name>
+        <s:displayName>Oracle Java Cloud Service</s:displayName>
+        <s:displayName_translationKey>serviceCatalog.displayName</s:displayName_translationKey>
+        <s:serviceCategory>PAAS</s:serviceCategory>
+        <s:opcVersion>17.1.5.0.0</s:opcVersion>
+        <s:serviceConfiguration>
+            <s:name>CUSTOM</s:name>
+            <s:displayName>Oracle Java Cloud Service</s:displayName>
+            <s:displayName_translationKey>serviceConfigurationCustom.displayName</s:displayName_translationKey>
+            <s:description>Oracle Java Cloud Service</s:description>
+            <s:description_translationKey>serviceConfigurationCustom.description</s:description_translationKey>
+            <s:rank>1</s:rank>
+            <s:offeringType>ALL</s:offeringType>
+        </s:serviceConfiguration>
+        <!--CLOUD_ACCOUNTS -->
+        <s:cloudAccountConfig>
+                <s:idcsSupported>ENABLED</s:idcsSupported>
+        </s:cloudAccountConfig>
+        <s:entitlementIdcsConfig>
+                <s:idcsAppId>
+                        <s:name>JAAS_IMPERSONATE</s:name>
+                        <s:description>Impersonation AppID</s:description>
+                        <s:displayName>JAAS_APPID</s:displayName>
+                </s:idcsAppId>
+                <s:idcsRole>
+                        <s:displayName>JaaS_Administrator</s:displayName>
+                        <s:description>JaaS Administrator</s:description>
+                        <s:availableForGranting>true</s:availableForGranting>
+                        <s:adminRole>true</s:adminRole>
+                </s:idcsRole>
+        </s:entitlementIdcsConfig>
+        <!--CLOUD_ACCOUNTS -->
+	<s:serviceSettings>
+        	<s:archiveSettings>
+                	<!-- Indicates that soft termination is enabled for the service -->
+               		<s:archiveMode>SOFT</s:archiveMode>
+         	</s:archiveSettings>
+	</s:serviceSettings> 
+        <!-- cloudCreditType : CloudCreditType is an enum which can have one of the following values IAASMB, JAVAMB, DBMB.
+              Each service belongs to a particular cloudCreditType e.g Compute comes under IAASMB,
+              DBAAS comes under DBMB and JAAS comes under JAVAMB.-->
+
+        <s:cloudCreditConfig>
+            <s:cloudCreditType>JAVAMB</s:cloudCreditType>
+        </s:cloudCreditConfig>
+        <!-- Subscription related metadata. Please don't change it without discussing with Ravi M or Venkat M -->
+        <s:subscriptionConfig>
+                <s:subscriptionModel>SERVICE_ENTITLEMENT</s:subscriptionModel>
+                <s:meteringServiceConfig>
+                    <s:meteringEnabled>true</s:meteringEnabled>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SE_BASIC_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83544</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83645</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_EE_BASIC_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83545</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83646</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SUITE_BASIC_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83546</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83647</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SE_PAAS_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83495</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83648</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_EE_PAAS_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83496</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83649</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83746</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B87105</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SUITE_PAAS_GP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83549</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83650</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SE_BASIC_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83550</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83651</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_EE_BASIC_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83551</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83652</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SUITE_BASIC_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83552</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83653</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SE_PAAS_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83553</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83654</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_EE_PAAS_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83554</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83655</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCS_SUITE_PAAS_HP_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B83555</s:component>
+                            </s:serviceComponentInfo>
+                            <s:serviceComponentInfo>
+                                <s:component>B83656</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCSODI_ANY_PAAS_ANY_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B86537</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                    <s:meteredResourceToSrvcComponents>
+                        <s:resourceName>JCSWCP_ANY_PAAS_ANY_OCPU_HOUR</s:resourceName>
+                        <s:serviceComponentInfoList>
+                            <s:serviceComponentInfo>
+                                <s:component>B86539</s:component>
+                            </s:serviceComponentInfo>
+                        </s:serviceComponentInfoList>
+                    </s:meteredResourceToSrvcComponents>
+                </s:meteringServiceConfig>
+                <s:serviceDependency>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:serviceName>DBAAS</s:serviceName>
+                </s:serviceDependency>
+            </s:subscriptionConfig>
+
+    </s:serviceCatalog>
+
+    <!-- Metering related metadata. Please don't change it without discussing with Ravi M or Venkat M -->
+    <s:metering>
+        <s:resource>
+            <s:resourceName>JCS_SE_BASIC_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - Virtual Image - General Purpose - OCPU Per
+                Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78553</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_BASIC_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - Virtual Image - General Purpose - OCPU Per
+                Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78554</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_BASIC_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - Virtual Image - General Purpose - OCPU Per
+                Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78555</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.EE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_BASIC_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - Virtual Image - General Purpose - OCPU Per
+                Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78556</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.EE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_BASIC_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - Virtual Image - General Purpose - OCPU Per Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78557</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SUITE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_BASIC_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - Virtual Image - General Purpose - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78558</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SUITE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_PAAS_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - General Purpose - OCPU Per
+                Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78559</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_PAAS_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - General Purpose - OCPU Per
+                Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78560</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_PAAS_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - General Purpose - OCPU Per Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78561</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.EE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_PAAS_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - General Purpose - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78562</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.EE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_PAAS_GP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - General Purpose - OCPU Per Month</s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78563</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SUITE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_PAAS_GP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - General Purpose - OCPU Per Hour</s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78564</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SUITE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_BASIC_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - Virtual Image - High Memory - OCPU Per Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78565</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_BASIC_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - Virtual Image - High Memory - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78566</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_BASIC_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - Virtual Image - High Memory - OCPU Per
+                Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78567</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.EE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_BASIC_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - Virtual Image - High Memory - OCPU Per
+                Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78568</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.EE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_BASIC_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - Virtual Image - High Memory - OCPU Per Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78569</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SUITE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_BASIC_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - Virtual Image - High Memory - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78570</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.BASIC.SUITE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_PAAS_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - High Memory - OCPU Per Month
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78571</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SE_PAAS_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Standard Edition - High Memory - OCPU Per Hour
+            </s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78572</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_PAAS_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - High Memory - OCPU Per Month</s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78573</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.EE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_EE_PAAS_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Enterprise Edition - High Memory - OCPU Per Hour</s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78574</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.EE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_PAAS_HP_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - High Memory - OCPU Per Month</s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B78575</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SUITE.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCS_SUITE_PAAS_HP_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Java Cloud Service - Suite - High Memory - OCPU Per Hour</s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B78576</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:resourceLimit>
+                <s:limitSource>
+                    <s:limitType>TRIAL</s:limitType>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:limitSource>
+            </s:resourceLimit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.JCS.PAAS.SUITE.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_HP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCSODI_ANY_PAAS_ANY_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle Data Integrator Cloud Service OCPU Per Month</s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B86971</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.ODI.PAAS.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCSODI_ANY_PAAS_ANY_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Data Integrator Cloud Service OCPU Per Hour</s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86969</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.ODI.PAAS.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCSWCP_ANY_PAAS_ANY_OCPU_MONTH</s:resourceName>
+            <s:description>Oracle WebCenter Portal Cloud Service OCPU Per Month</s:description>
+            <s:rawUnitDisplayName>OCPU Months</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Months</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Months</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Monthly</s:aggregationMultiplier>
+            <s:gsiProductId>B86972</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER MONTH</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.WCP.PAAS.MONTHLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+        <s:resource>
+            <s:resourceName>JCSWCP_ANY_PAAS_ANY_OCPU_HOUR</s:resourceName>
+            <s:description>Oracle Webcenter Portal Cloud Service OCPU Per Hour</s:description>
+            <s:rawUnitDisplayName>OCPU Hours</s:rawUnitDisplayName>
+            <s:hourlyUnitDisplayName>OCPU Hours</s:hourlyUnitDisplayName>
+            <s:dailyUnitDisplayName>OCPU Hours</s:dailyUnitDisplayName>
+            <s:aggregationMultiplier>Hourly</s:aggregationMultiplier>
+            <s:gsiProductId>B86970</s:gsiProductId>
+            <s:gsiUsageUnit>OCPU PER HOUR</s:gsiUsageUnit>
+            <s:usagePolicy>
+                <s:pointToHoursAggregator>MAX</s:pointToHoursAggregator>
+            </s:usagePolicy>
+            <s:conversionPolicy>
+                <s:source>
+                    <s:tag>ORA.WCP.PAAS.HOURLY</s:tag>
+                    <s:serviceName>Compute</s:serviceName>
+                    <s:resourceName>OCPU_GP</s:resourceName>
+                </s:source>
+            </s:conversionPolicy>
+        </s:resource>
+
+		<!-- when compute breaches, then breach Jaas also -->
+		<s:breachDependency>
+			<s:type>RESOURCE</s:type>
+			<s:serviceName>Compute</s:serviceName>
+				<s:resourceNames>
+					<s:name>OCPU_GP</s:name>
+					<s:name>OCPU_HP</s:name>
+					<s:name>BLOCK_STORAGE</s:name>
+					<s:name>EIPs</s:name>
+					<s:name>EIPs_UNATTACHED</s:name>	
+				</s:resourceNames>
+		</s:breachDependency>	
+		<s:breachDependency>
+			<s:type>CLOUD_CREDIT</s:type>
+			<s:serviceName>Compute</s:serviceName>
+		</s:breachDependency>			
+    </s:metering>
+	
+    <s:associations>
+        <s:association>
+            <s:sourceConfig>
+                <s:name>CUSTOM</s:name>
+                <s:offeringType>ALL</s:offeringType>
+            </s:sourceConfig>
+            <s:targetAssociations>
+                <s:targetAssociationInfo>
+                    <s:serviceInfo>
+                        <s:name>Storage</s:name>
+                        <s:srvcConfigs>
+                            <s:srvcConfig>
+                                <s:name>CUSTOM</s:name>
+                                <s:offeringType>ALL</s:offeringType>
+                            </s:srvcConfig>
+                        </s:srvcConfigs>
+                    </s:serviceInfo>
+                    <s:isMandatoryAssociation>true</s:isMandatoryAssociation>
+                    <s:createNewSubscription>false</s:createNewSubscription>
+                    <s:isExclusiveAssociation>true</s:isExclusiveAssociation>
+                    <s:maxNumSourceInstances>1</s:maxNumSourceInstances>
+                    <s:maxNumTargetInstances>1</s:maxNumTargetInstances>
+                    <!--CLOUD_ACCOUNTS -->
+                        <s:idcsAssociations>
+                                <s:idcsAssociation>
+                                        <s:sourceAppId>JAAS_IMPERSONATE</s:sourceAppId>
+                                        <s:targetRole>STORAGE_SERVICE_MANAGER_ROLE</s:targetRole>
+                                 </s:idcsAssociation>
+                         </s:idcsAssociations>
+                    <!--CLOUD_ACCOUNTS -->                
+		</s:targetAssociationInfo>
+            </s:targetAssociations>
+        </s:association>
+        <s:association>
+            <s:sourceConfig>
+                <s:name>CUSTOM</s:name>
+                <s:offeringType>ALL</s:offeringType>
+            </s:sourceConfig>
+            <s:targetAssociations>
+                <s:targetAssociationInfo>
+                    <s:serviceInfo>
+                        <s:name>Compute</s:name>
+                        <s:srvcConfigs>
+                            <s:srvcConfig>
+                                <s:name>CUSTOM</s:name>
+                                <s:offeringType>ALL</s:offeringType>
+                            </s:srvcConfig>
+                        </s:srvcConfigs>
+                    </s:serviceInfo>
+                    <s:isMandatoryAssociation>true</s:isMandatoryAssociation>
+                    <s:createNewSubscription>false</s:createNewSubscription>
+                    <s:isExclusiveAssociation>true</s:isExclusiveAssociation>
+                    <s:maxNumSourceInstances>1</s:maxNumSourceInstances>
+                    <s:maxNumTargetInstances>1</s:maxNumTargetInstances>
+                        <!--CLOUD_ACCOUNTS -->
+                        <s:idcsAssociations>
+                                <s:idcsAssociation>
+                                        <s:sourceAppId>JAAS_IMPERSONATE</s:sourceAppId>
+                                        <s:targetRole>COMPUTE_IMP_APPID</s:targetRole>
+                                </s:idcsAssociation>
+                        </s:idcsAssociations>
+                        <!--CLOUD_ACCOUNTS -->
+                </s:targetAssociationInfo>
+            </s:targetAssociations>
+        </s:association>
+    </s:associations>
+</s:tasBlueprint>

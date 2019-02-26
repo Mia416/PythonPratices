@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<definitions name="GetEmailCert" targetNamespace="urn:GetEmailCert" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:GetEmailCert" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+
+<message name="GetEmailCertRequest">
+  <part name="username" type="xsd:string" /> 
+</message>
+
+<message name="GetEmailCertResponse">
+  <part name="fullname" type="xsd:string" /> 
+  <part name="email" type="xsd:string" /> 
+  <part name="certificate" type="xsd:string" /> 
+</message>
+
+</root>
